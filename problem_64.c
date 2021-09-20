@@ -11,5 +11,7 @@ Algo:
 
 int main(){
     int n;
+    //read n
+    printf("Enter the limit:");
     return 0;
 }
