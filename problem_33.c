@@ -8,7 +8,7 @@ Write a C Menu Driven Programe to covert the following
 
 #include <stdio.h>
 #include<stdlib.h>
-//function for converting decimal to Binery
+//function for converting Decimal to Binery
 void DecToBin(int n){
     /*Concept Used:
        First get the reminder of the number with 2 and store the
@@ -32,13 +32,31 @@ void DecToBin(int n){
        printf("%d",arr[i]);
    }
 }
-
+//function for converting  Binery to Decimal
+void BinToDec(int n){
+    /*
+        Concept Used:
+           Divide the number by 10 and store the remainder into variable rem.
+           and calculate the decimal_num  as decimal_num + rem * base.
+           Initially, the decimal_num is 0, and the base is 1, where the rem variable stores the remainder of the number.
+           Divide the quotient of the original number by 10 and Multiply the base by 2.
+           and Continue until the number reaches zero
+    */
+   int rem=0,base=1,decimal_num=0;
+   while(n>0){
+       rem = n %10;
+       decimal_num = decimal_num+rem *base;
+       base = base*2;
+       n = n/10;
+   }
+   //print the decimal number
+   printf("\nNumber in decimal format is :  %d\n",decimal_num);
+}
 int main(){
     int num,option,choice;
     do
     {
-        printf("\nEnter the Number :");
-        scanf("%d", &num);
+        
         printf("\nSelect which action you want to perform:");
         printf("\n\tEnter 1 for Decimal to Binery\n\tEnter 2 for Binery to Decimal\n\tEnter 3 for exit");
         printf("\nEnter here:");
@@ -46,10 +64,14 @@ int main(){
         switch (option)
         {
         case 1:
+            printf("\nEnter the Number in Decimal Format :");
+            scanf("%d", &num);
             DecToBin(num);
             break;
         case 2:
-            /* code */
+            printf("\nEnter the Number in Binery Format :");
+            scanf("%d", &num);
+            BinToDec(num);
             break;
         case 3:
             exit(0);
