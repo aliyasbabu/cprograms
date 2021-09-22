@@ -9,8 +9,11 @@ functions, write a separate function to reverse a string
 //fuction for reverse a string
 void revString(char a[]){
    char temp;
-	int i, j, n;
-	n = strlen(a);
+	int i, j, n=0;
+	
+    for(i=0;a[i]!='\0';i++){
+        n++;
+    }
 
 	// swapping string[i] and string[j] until i<j
 	for (i = 0, j = n - 1; i < j; ++i, --j) {
